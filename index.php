@@ -1,8 +1,66 @@
-<!DOCTYPE html>
-<html>
-<title>Rooster</title>
-<head>
-<body>
+<?php
+$days = new DatePeriod(
+    new DateTime('2021-03-01'),
+    new DateInterval('P1D'),
+    new DateTime('2021-03-31')
+);
 
-</body>
+$staff = [
+    'Account'=>[
+        "Ross",
+        "Bruce","Cook",
+        "Carolyn"
+    ],
+    'Admin'=>[
+        "Rachel","Edwards",
+        "Christopher","Perez",
+        "Thomas",
+    ]
+    ];
+
+$header = '<tr> <th>Staff</th>';
+$days_count = 1;
+foreach($days as $day){
+    $header.='<th>'.date_format($day,"d D").'</th>';
+    $days_count++;
+}
+$header.= '</tr>'
+
+?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="Stylesheet" href="./app.css">
+    <title>rooster</title>
+  </head>
+  <body>
+  <main class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+    <div class="card">
+    <div class=" table-responsive">
+            <table class="table table-striped table-sm">
+        <thead>
+        <?php echo  $header?>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+  </div>
+  </main>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </body>
 </html>
