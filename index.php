@@ -44,10 +44,14 @@ $header.= '</tr>'
   <div class="row">
     <div class="col-12">
     <div class="card-header">
-    <div class="form-check">
-    <input type="date" class="form-input" id="search">
+    <div class="row">
+    <div class="col-6">
+    <input type="date" class="form-control" id="search">
   </div>
+  <div class="col-3">
   <button type="submit" class="btn btn-primary">Go</button>
+  </div>
+    </div>
     </div>
     <div class="card">
     <div class=" table-responsive">
