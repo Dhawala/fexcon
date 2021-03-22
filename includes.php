@@ -56,7 +56,7 @@ $empty_cols .= "</tr>";
 
 //loop through each department user
 foreach ($deps as $dep_name => $staff_members) {
-    $tbody .= "<tr class='gray-row' ><td colspan='".($days_count-2)."'>$dep_name</td>";
+    $tbody .= "<tr class='gray-row' ><td colspan='".($days_count)."'>$dep_name</td>";
     foreach ($staff_members as $staff) {
         $tbody .= "<tr><td>$staff</td>$empty_cols";
     }
