@@ -5,7 +5,7 @@ $days = new DatePeriod(
     new DateTime('2021-03-31')
 );
 
-$staff = [
+$deps = [
     'Account'=>[
         "Ross",
         "Bruce","Cook",
@@ -24,7 +24,15 @@ foreach($days as $day){
     $header.='<th>'.date_format($day,"d D").'</th>';
     $days_count++;
 }
-$header.= '</tr>'
+$header.= '</tr>';
+
+foreach($deps as $department){
+
+    foreach($department as $staff){
+        
+    }
+
+}
 
 ?>
 <!doctype html>
