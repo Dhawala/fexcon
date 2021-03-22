@@ -5,15 +5,21 @@ $number_of_days_in_month = cal_days_in_month(CAL_GREGORIAN,date('m'),date('Y'));
 
 $first_day = date('Y').'-'.date('m').'-01';
 $last_day = date('Y-m-d',strtotime(date('Y-m').'-01 + '.$number_of_days_in_month.'days')); 
-die;
+if(isset($_GET['date'])){
+    $date = strtotime(date($_GET['date']));
+    $year = date('Y',$date);
+    $month = date('m',$date);
+    $number_of_days_in_month = cal_days_in_month(CAL_GREGORIAN,$month,$year);
+
+    $first_day = $year.'-'.$month.'-01';
+    $last_day = date('Y-m-d',strtotime($year.'-'.$month.'-01 + '.$number_of_days_in_month.'days')); 
+}
 $days = new DatePeriod(
     new DateTime($first_day),
     new DateInterval('P1D'),
     new DateTime($last_day)
 );
-if(isset($_GET['date'])){
 
-}
 //departments and users array
 $deps = [
     'Account' => [
@@ -77,7 +83,7 @@ foreach ($deps as $dep_name => $staff_members) {
                         <form action="#" method="get">
                         <div class="row">
                         <div class="col-6 pull-right">
-                            <input type="date" class="form-control" name="date" id="search">
+                            <input type="month"  class="form-control" value="<?php echo isset($_GET['date'])?$_GET['date']:'' ?>" name="date" id="search">
                         </div>
                         <div class="col-3 pull-right">
                             <button type="submit" class="btn btn-primary">Go</button>
