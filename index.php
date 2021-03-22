@@ -43,6 +43,12 @@ $header.= '</tr>'
   <main class="container-fluid">
   <div class="row">
     <div class="col-12">
+    <div class="card-header">
+    <div class="form-check">
+    <input type="date" class="form-input" id="search">
+  </div>
+  <button type="submit" class="btn btn-primary">Go</button>
+    </div>
     <div class="card">
     <div class=" table-responsive">
             <table class="table table-striped table-sm">
