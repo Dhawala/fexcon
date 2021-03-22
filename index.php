@@ -20,16 +20,25 @@ $deps = [
 
 $header = '<tr> <th>Staff</th>';
 $days_count = 1;
+
 foreach($days as $day){
     $header.='<th>'.date_format($day,"d D").'</th>';
     $days_count++;
 }
 $header.= '</tr>';
 
-foreach($deps as $department){
+$tbody = '';
+//empty cols
+$empty_cols ='';
+for($i = 1; $i<$days_count; $i++){
+    $empty_cols.='<td></td>';
+}
+$empty_cols .= "</tr>";
 
-    foreach($department as $staff){
-        
+foreach($deps as $dep_name => $staff_members){
+    $tbody .= "<tr colspan='$days_count' class='gray-row' ><td>$dep_name</td></tr>";
+    foreach($staff_members as $staff){
+        $tbody .= "<tr><td>$staff</td>$empty_cols";
     }
 
 }
@@ -44,31 +53,31 @@ foreach($deps as $department){
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="Stylesheet" href="./app.css">
+    <link rel="Stylesheet" href="./css/app.css">
     <title>rooster</title>
   </head>
   <body>
   <main class="container-fluid">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 pull-right">
     <div class="card-header">
     <div class="row">
-    <div class="col-6">
+    <div class="col-6 pull-right">
     <input type="date" class="form-control" id="search">
   </div>
-  <div class="col-3">
+  <div class="col-3 pull-right">
   <button type="submit" class="btn btn-primary">Go</button>
   </div>
     </div>
     </div>
     <div class="card">
     <div class=" table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-bordered table-sm">
         <thead>
         <?php echo  $header?>
         </thead>
         <tbody>
-        
+            <?php echo $tbody ?>
         </tbody>
     </table>
     </div>
